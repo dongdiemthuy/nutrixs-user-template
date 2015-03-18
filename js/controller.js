@@ -14,7 +14,6 @@ angular.module('nutrixApp')
                 $scope.ingredients = data;
             });
     };
-
     $scope.getNutrientUnitType = function(id) {
         // console.log(id);
         return nutrientList.getNutrient(id).unitType;
