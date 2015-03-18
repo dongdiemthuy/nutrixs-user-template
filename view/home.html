@@ -1,0 +1,39 @@
+
+<div>
+ <div data-pagination="" data-num-pages="numPages()" 
+      data-current-page="currentPage"   
+      data-boundary-links="true"></div>
+    <div id="header">
+        <table>
+            <tr>
+                <td><img src="/img/nutrition.jpg"></td>
+                <td>
+                    <input ng-model="searchText" style="margin-left:250px" type="text" placeholder="enter food name">
+                </td>
+                <td>
+                    <button style="margin-left: 20px;" type="button" class="btn btn-primary" ng-click="doSearchIngredients(searchText)"> Search </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="panel-left">
+        <h3> Ingredient List</h3>
+        <!-- ng-if="moreDataCanBeLoaded()" infinite-scroll="loadMoreIngredients()"-->
+        <div >
+            <table>
+                <tr ng-repeat="ingredient in ingredients" href="#/viewingredient/{{ingredient.id}}">
+                    <td><a style="text-decoration: none;" ng-href="#/viewingredient/{{ingredient.id}}">{{ingredient.label}}</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="panel-right">
+
+    </div>
+    <div id="footer">
+       
+
+    </div>
+</div>

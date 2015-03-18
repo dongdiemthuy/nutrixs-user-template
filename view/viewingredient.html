@@ -1,0 +1,133 @@
+<h3>Nutrient Fact</h3>
+<div>
+    <div class="box-left">
+        <h4>Name: {{ingredients.label}}</h4>
+        <table class="tg" style="border-style: solid; */width: 250px;margin-left: 10px;border: 1.5px solid #9fabb9">
+            <tr class="thin-end" ng-repeat="nutrientContentList in ingredients.nutrientContentList">
+                <td class="tg-031e">{{nutrientContentList.name}}</td>
+                <td class="tg-031e">{{nutrientContentList.amount}}</td>
+                <td class="tg-031e">{{getNutrientUnitType(nutrientContentList.id)}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="box-right">
+<fieldset id="nutrition-info-container"></fieldset>
+<legend class="largerSummary"> Nutrition Information</legend>
+<div align="center">Amount per 100 grams </div>
+<br class="clearer">
+<div align="center">
+    <table style="border-color:gray">
+        <tr>
+            <td valign="top">
+                <div class="clearer m-t13" style="width:300px">
+                    <div class="groupBorder" style="height:150px">
+                        <div align="center" class="c01"> Calorie Information</div>
+                        <div style="width: 286px">
+                            <div class="c02-left" style="width: 225px">Amounts Per Selected Serving
+                                <div class="nf1 left" style="width:113px"> Calorie</div>
+                                <div class="nf2 left" style="width:38px"> 100Kcal</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <br class= "clearer">
+                <div class="clearer m-t13" style="width:300px">
+                    <div class="groupBorder" style="height:150px">
+                        <div align="center" class="c01"> Carbohydrates</div>
+                        <div style="width: 286px">
+                            <div class="c02-left" style="width: 225px">Amounts Per Selected Serving
+                                <div class="nf1 left" style="width:113px"> Total Carbohydrate</div>
+                                <div class="nf2 left" style="width:38px"> 0.1g</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+                	<br class= "clearer">
+               	<div class="clearer m-t13" style="width:300px">
+                    <div class="groupBorder" style="height:150px">
+                        <div align="center" class="c01"> Fats & Fatty Acids</div>
+                        <div style="width: 286px">
+                            <div class="c02-left" style="width: 225px">Amounts Per Selected Serving
+                                <div class="nf1 left" style="width:113px"> Total Fat</div>
+                                <div class="nf2 left" style="width:38px">
+                                	<span>1122g</span>
+                                </div>
+                               <!--  <table>
+                                <tr>
+                                	<td>AAA</td>
+                                	<td>g</td>
+                                </tr>
+                                </table> -->
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <br class= "clearer">
+                <div class="clearer m-t13" style="width:300px">
+                    <div class="groupBorder" style="height:150px">
+                        <div align="center" class="c01"> Minerals</div>
+                        <div style="width: 286px">
+                            <div class="c02-left" style="width: 225px">Amounts Per Selected Serving
+                                <div class="nf1 left" style="width:113px"> Calcium</div>
+                                <div class="nf2 left" style="width:38px"> 100Kcal</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </td>
+            <td class="p-l13" valign="top">
+            	<div class="clearer m-t13" style="width:300px">
+                    <div class="groupBorder" style="height:150px">
+                        <div align="center" class="c01"> Protein & Amino Acids</div>
+                        <div style="width: 286px">
+                            <div class="c02-left" style="width: 225px">Amounts Per Selected Serving
+                                <div class="nf1 left" style="width:113px"> Protein</div>
+                                <div class="nf2 left" style="width:38px"> ?g</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br class= "clearer">
+                <div class="clearer m-t13" style="width:300px">
+                    <div class="groupBorder" style="height:150px">
+                        <div align="center" class="c01"> Vitamins</div>
+                        <div style="width: 286px">
+                            <div class="c02-left" style="width: 225px">Amounts Per Selected Serving
+                                <div class="nf1 left" style="width:113px"> Vitamin A</div>
+                                <div class="nf2 left" style="width:38px"> 100Kcal</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br class= "clearer">
+                
+                <div class="clearer m-t13" style="width:300px">
+                    <div class="groupBorder" style="height:150px">
+                        <div align="center" class="c01"> Sterols</div>
+                        <div style="width: 286px">
+                            <div class="c02-left" style="width: 225px">Amounts Per Selected Serving
+                                <div class="nf1 left" style="width:113px"> Cholesterol</div>
+                                <div class="nf2 left" style="width:38px"> 100Kcal</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br class= "clearer">
+                <div class="clearer m-t13" style="width:300px">
+                    <div class="groupBorder" style="height:150px">
+                        <div align="center" class="c01"> Other</div>
+                        <div style="width: 286px">
+                            <div class="c02-left" style="width: 225px">Amounts Per Selected Serving
+                                <div class="nf1 left" style="width:113px"> Alcohol</div>
+                                <div class="nf2 left" style="width:38px"> 0.0g</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+  </div>
+  </div>
