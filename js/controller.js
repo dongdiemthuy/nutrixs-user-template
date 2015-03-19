@@ -22,33 +22,16 @@ angular.module('nutrixApp')
     $scope.viewdetailIngredient();
 })
 
-.controller('homeCtrl', function($scope, $http, $stateParams, $state, nutrientList) {
-  
-    $scope.ingredients = [],
-    $scope.currentPage = 1,
-    $scope.numPerPage = 20,
-    //$scope.maxSize = 5;
+.controller('homeCtrl', function($scope, $http, $stateParams, $state, nutrientList, $log) {
 
-  $scope.numPages = function () {
-    return Math.ceil($scope.ingredients.length / $scope.numPerPage);
-  };
-  
-  $scope.$watch('currentPage + numPerPage', function() {
-    var begin = (($scope.currentPage - 1) * $scope.numPerPage)
-        , end = begin + $scope.numPerPage;
-        // console.log('ssss');
-    $scope.ingredients = $scope.ingredients.slice(begin, end);
-
-  });
-
-  //$scope.ingredients = [];
+  $scope.ingredients = [];
   $scope.ingredientMeta = {};
-  // console.log('ssss');
+ 
   $scope.init = function() {
     $scope.ingredients = [];
     $scope.ingredientMeta['total'] = -1;
     $scope.ingredientMeta['start'] = 0;
-    $scope.ingredientMeta['limit'] = 100;
+    $scope.ingredientMeta['limit'] = 30;
     $scope.ingredientMeta['range'] = 50;
     delete $scope.ingredientMeta['query'];
   }
@@ -75,9 +58,12 @@ angular.module('nutrixApp')
         params: myparams
       }).then(function(resp) {
           console.log('Success', resp);
+          $log.debug("Start:" + $scope.ingredientMeta['start']);
           $scope.ingredientMeta['total'] = resp.data.total;
+          $log.debug("Total:" + $scope.ingredientMeta['total']);
           $scope.ingredients = $scope.ingredients.concat(resp.data.collection);
           $scope.ingredientMeta['start'] += resp.data.collection.length;
+          $log.debug("Start:" + $scope.ingredientMeta['start']);
           $scope.$broadcast('scroll.infiniteScrollComplete');
         }, function(err) {
           console.error('ERR', err);

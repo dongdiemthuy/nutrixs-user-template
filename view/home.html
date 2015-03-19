@@ -1,8 +1,8 @@
 
 <div>
- <div data-pagination="" data-num-pages="numPages()" 
+ <!-- <div data-pagination="" data-num-pages="numPages()" 
       data-current-page="currentPage"   
-      data-boundary-links="true"></div>
+      data-boundary-links="true"></div> -->
     <div id="header">
         <table>
             <tr>
@@ -21,14 +21,13 @@
         <h3> Ingredient List</h3>
         <!-- ng-if="moreDataCanBeLoaded()" infinite-scroll="loadMoreIngredients()"-->
         <div >
-            <table>
-                <tr ng-repeat="ingredient in ingredients" href="#/viewingredient/{{ingredient.id}}">
+            <table ng-if="moreDataCanBeLoaded()" infinite-scroll="loadMoreIngredients()">
+                <tr ng-repeat="ingredient in ingredients">
                     <td><a style="text-decoration: none;" ng-href="#/viewingredient/{{ingredient.id}}">{{ingredient.label}}</a></td>
                 </tr>
             </table>
         </div>
     </div>
-
     <div class="panel-right">
 
     </div>
