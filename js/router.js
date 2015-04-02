@@ -26,7 +26,37 @@ angular.module('nutrixApp').config(['$stateProvider', '$urlRouterProvider',
             url: '/home',
             controller: 'homeCtrl',
             templateUrl: 'view/home.html'
-        });
+        })
+
+        .state('compareingredient', {
+            url: '/compareingredient/',
+            // resolve: {
+            //     ingredientId: function($stateParams) {
+            //     return $stateParams.id;
+            //     },
+            // },
+            controller: 'compareIngredientCtrl',
+            templateUrl: 'view/compare-ingredient.html'
+        })
+
+
+        .state('createRecipe', {
+            url: '/createrecipe',
+            controller: 'createRecipeCtrl',
+            templateUrl: 'view/createrecipe.html'
+        })
+
+        // .state('viewRecipe', {
+        //     url: '/viewrecipe',
+        //     controller: 'viewRecipeCtrl',
+        //     templateUrl: 'view/viewrecipe.html'
+        // })
+
+        .state('addIngredientRecipe',{
+            url:'/addingredient',
+            controller: 'addIngredientCtrl',
+            templateUrl: 'view/addingredient.html'
+        })
 
     }
 ]);

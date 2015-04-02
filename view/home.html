@@ -1,8 +1,5 @@
-
-<div>
- <!-- <div data-pagination="" data-num-pages="numPages()" 
-      data-current-page="currentPage"   
-      data-boundary-links="true"></div> -->
+<div class="container-fluid">
+ 
     <div id="header">
         <table>
             <tr>
@@ -13,13 +10,17 @@
                 <td>
                     <button style="margin-left: 20px;" type="button" class="btn btn-primary" ng-click="doSearchIngredients(searchText)"> Search </button>
                 </td>
+                <td> 
+                    <button style="margin-left: 20px;" type="button" class="btn btn-primary" ng-click="compareIngredient()"> Comparison Tool </button>
+                </td>
             </tr>
         </table>
+        
     </div>
 
     <div class="panel-left">
         <h3> Ingredient List</h3>
-        <!-- ng-if="moreDataCanBeLoaded()" infinite-scroll="loadMoreIngredients()"-->
+        <!-- ng-if="moreDataCanBeLoaded()" infinite-scroll="loadMoreIngredients()" de o table-->
         <div >
             <table ng-if="moreDataCanBeLoaded()" infinite-scroll="loadMoreIngredients()">
                 <tr ng-repeat="ingredient in ingredients">
@@ -32,7 +33,5 @@
 
     </div>
     <div id="footer">
-       
-
     </div>
 </div>

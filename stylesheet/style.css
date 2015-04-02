@@ -1,12 +1,9 @@
-body {
-  font-family: arial, helvetica, serif;
-  font-size: 13px;
- /* margin: 15px auto 0 auto;
-  border-right: 0;
-  border-left: 0;
-  width: 1000px;*/
-}
 
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {  
+  body {
+  font-family: arial, helvetica, serif;
+  font-size: 13px; }
+}
 
 .tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;border:none;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:6px 7px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
@@ -66,6 +63,7 @@ color: white;
   height: 57px;
   margin: 35px 0 5px 15px;
   padding: 0px;
+  
 }
 #footer{
   margin-left: 20px;
@@ -123,21 +121,30 @@ legend.largerSummary {
 div.groupBorder {
   border: 1px solid #9fabb9;
   padding: 8px 8px 25px 8px;
-
 }
+div.groupBorder1 {
+  border: 1px solid #9fabb9;
+  padding: 8px 8px 25px 8px;
+  height: auto;
+}
+
 .c01 {
   padding: 2px 5px 10px 5px;
   text-align: center;
   border: 0px;
   font: bold 12px Arial;
+
+}
 }
 .c02 {
   padding: 0 5px 3px 5px;
   text-align: left;
+
 }
 td, th {
   display: table-cell;
   vertical-align: inherit;
+
 }
 td, th {
   padding: 0;
@@ -146,11 +153,33 @@ td, th {
 .nf1 {
   padding: 2px 2px 2px 5px;
   text-align: left;
+  border-bottom: 1px solid black;
+  border-left: 0px;
+  border-right: 0px ;
+  font: normal 11px Arial;
+}
+
+.left{
+  float:left;
 }
 
 .nf2 {
   padding: 2px 0 2px 5px;
-  text-align: right;
+  text-align: center;
+  border-bottom: 1px solid black;
+  border-left: 0px;
+  border-right: 0px;
+  font: normal 11px Arial;
+  
+}
+
+.nf3 {
+  padding: 2px 2px 2px 5px;
+  text-align: left;
+  border-bottom: 1px solid black;
+  border-left: 0px;
+  border-right: 0px;
+  font: normal 11px Arial;
 }
 
 table {
@@ -163,3 +192,263 @@ table {
 .p-l13 {
   padding-left: 13px;
 }
+
+/*.layout-0 #main{
+  width: 620px;
+}
+
+/*.main-title, .main-title-2 {
+  color: #0a5282;
+  font-size: 22px;
+  font-weight: bolder;
+  margin: 17px 0 20px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+body#recipe-calculator table#meal-table {
+  clear: left;
+  margin-top: 0;
+}
+div#required_recipe_info div.column {
+  float: left;
+  margin-right: 55px;
+  padding-bottom: 20px;
+}*/
+
+.linetable{
+  border: 1px solid black;
+    border-collapse: collapse;"
+}
+
+.warpper {
+  width: 620px;
+  margin: auto;
+  font-family: inherit;
+}
+.titer {
+  font-family: inherit;
+  width: 620px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.main-title {
+  color: #0a5282;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.conten {
+  margin-top: 20px;
+}
+.column1 {
+  float: left;
+}
+
+.column2 {
+  float: left;
+  margin-left: 50px;
+}
+
+.label-text {
+  font-weight: bold;
+  color: #0a5282;
+}
+
+.text-long {
+  width: 320px;
+}
+
+.text-short {
+  width: 30px;
+}
+
+.table {
+  float: left;
+  margin-top: 15px
+}
+
+.main-table {
+  border-bottom: 1px solid #e6e6e6;
+  width: 620px;
+}
+.main-table thead td.first{
+  color: #f7941e;
+  width: 200px;
+  background: none;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.main-table thead td {
+  width: 20px;
+  background: #035184;
+  color: white;
+  font-size: 12px;
+    font-weight: normal;
+    padding: 6px 6px;
+    text-align: center;
+    text-transform: capitalize;
+    font-family: inherit;
+}
+
+.main-table tbody td {
+  background-color: #f6f6f6;
+  border-bottom: 1px solid #e6e6e6;
+  font-family: Arial,Helvetica,sans-serif;
+  text-align: right;
+  padding: 6px 10px;
+  margin-top: 2px;
+  vertical-align: middle;
+  font-size: 10px;
+}
+.main-table tbody tr td.first {
+  text-align: left;
+}
+.main-table tbody tr td.delete {
+  width: 20px;
+}
+.main-table tbody tr.bottom td.link {
+  text-align: left;
+}
+.main-table tbody tr.bottom td {
+  font-size: 16px;
+  background: none;
+  border-bottom: none;
+}
+.main-table tbody a {
+  color: #0072bc;
+  text-decoration-line: none;
+}
+
+.main-table tbody a:hover {
+  color: #ff8000;
+}
+
+.table-total {
+  margin-left: 118px;
+  margin-top: 15px;
+}
+.table-total tbody tr.total td.first{
+  text-align: right;
+  background: none;
+  border-bottom: none;
+}
+.table-total tbody td {
+  
+  background-color: #f6f6f6;
+  border-bottom: 1px solid #e6e6e6;
+  font-family: Arial,Helvetica,sans-serif;
+  text-align: right;
+  padding: 8px 12px;
+  margin-top: 2px;
+  vertical-align: middle;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* style addingredient*/
+body {
+  margin: 50px;
+}
+
+p {
+  color: #0a5282;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+p.main-title {
+  color: #0a5282;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+}
+ a:HOVER {
+  color: #fd9902;
+  text-decoration: none;
+}
+
+.col-1 {
+  width: 420px;
+  position: relative;
+  overflow: hidden;
+}
+
+.matching {
+  height: auto  ;
+  width: 402px;
+  border: 1px solid #808080;
+  overflow: auto;
+  padding: 4px 8px;
+  font-family: Arial,sans-serif;
+}
+
+ul {
+  list-style: outside none none;
+}
+
+ul.matching li:last-child {
+    border-bottom: 0px none;
+}
+
+li {
+  font-size: 12px;
+  height: 30px;
+  border-bottom: 1px solid #E6E6E6;
+  display: block;
+  overflow: hidden;
+}
+
+li:HOVER {
+  background: #f0f0f0;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+ul.matching li a {
+  display: inline-block;
+  float: left;
+  line-height: 19px;
+  padding: 7px 0px;
+}
+
+.mousetype {
+  font-size: 10px;
+}
+
+#serving {
+  height: 255px; 
+  margin-top: 113px;
+  width: 400px;
+  background-color: #F6F6F6;
+  text-align: center;
+  border-top: 3px solid #E6E6E6;
+    border-bottom: 1px solid #E6E6E6;
+}
+}
+.loaded_item {
+  padding: 20px;
+}
+.food-description {
+  margin-top: 10px;
+  margin-bottom: 0.3em;
+  color: #F00;
+  font-weight: bold;
+  line-height: 1.2em;
+  font-size: 1.2em;
+}
+
+.user_submitted {
+  font-size: 10px;
+  line-height: 1.1em;
+}
+
+.nutritional_info {
+  margin-bottom: 25px;
+  font-size: 12px;
+}
+
