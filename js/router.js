@@ -43,16 +43,10 @@ angular.module('nutrixApp').config(['$stateProvider', '$urlRouterProvider',
         .state('createRecipe', {
             url: '/createrecipe',
             controller: 'createRecipeCtrl',
-            templateUrl: 'view/createrecipe.html'
+            // templateUrl: 'view/createrecipe.html'
         })
 
-        // .state('viewRecipe', {
-        //     url: '/viewrecipe',
-        //     controller: 'viewRecipeCtrl',
-        //     templateUrl: 'view/viewrecipe.html'
-        // })
-
-        .state('addIngredientRecipe',{
+        .state('addIngredientRecipe', {
             url:'/addingredient',
             controller: 'addIngredientCtrl',
             templateUrl: 'view/addingredient.html'

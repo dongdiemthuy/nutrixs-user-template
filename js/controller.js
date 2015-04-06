@@ -27,6 +27,7 @@ angular.module('nutrixApp')
 
 .controller('homeCtrl', function($scope, $http, $stateParams, $state, nutrientList, $log) {
 
+  $log.debug("homeCtrl get here");
   $scope.ingredients = [];
   $scope.ingredientMeta = {};
    
@@ -129,29 +130,7 @@ angular.module('nutrixApp')
     
   
 })
-.controller('listRecipeCtrl', function($scope, $http, $stateParams, $state, nutrientList) {
 
-    //button createRecipe: goto viewdetailcreateRecipe
-    //list many recipe(ng-repeat list recipe) when click + go to detailRecipe with id of recipe
-})
-
-.controller('createRecipeCtrl', function($scope, $http, $stateParams, $state, nutrientList) {
-
-    //recipe name
-    //preparation: mo ta cach thuc hien
-    //cancel
-    //button save analyze: luu va phan tich ra dinh duong cua tat ca cac ingredient nguoi dung chon
-    //Add ingredient: giong trang home, list ra cac mon an, nhan button + de add ingredient va hien thi len 
-    // INGREDIENT o trang moi (viewRecipe), idIngredient
-
-})
-
-.controller('viewRecipeCtrl', function($scope, $http, $stateParams, $state, nutrientList) {
-
-  // Ingredient hien thi list khi nguoi dung chon
-  // combobox Qty and gram tren 1 mon
-   
-})
 
 .controller('addIngredientCtrl', function($scope, $http, $stateParams, $state, nutrientList, $log) {
 
