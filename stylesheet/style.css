@@ -311,6 +311,7 @@ div#required_recipe_info div.column {
 }
 .main-table tbody tr.bottom td.link {
   text-align: left;
+   width: 20px;
 }
 .main-table tbody tr.bottom td {
   font-size: 16px;
@@ -380,7 +381,7 @@ a {
 }
 
 .matching {
-  height: auto  ;
+  height: auto;
   width: 402px;
   border: 1px solid #808080;
   overflow: auto;

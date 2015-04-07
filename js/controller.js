@@ -131,12 +131,11 @@ angular.module('nutrixApp')
   
 })
 
-
 .controller('addIngredientCtrl', function($scope, $http, $stateParams, $state, nutrientList, $log) {
 
   $scope.ingredients = [];
   $scope.ingredientMeta = {};
- 
+  
   $scope.init = function() {
     $scope.ingredients = [];
     $scope.ingredientMeta['total'] = -1;

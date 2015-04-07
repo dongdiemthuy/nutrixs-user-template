@@ -39,7 +39,6 @@ angular.module('nutrixApp').config(['$stateProvider', '$urlRouterProvider',
             templateUrl: 'view/compare-ingredient.html'
         })
 
-
         .state('createRecipe', {
             url: '/createrecipe',
             controller: 'createRecipeCtrl',
