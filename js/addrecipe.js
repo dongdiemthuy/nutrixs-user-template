@@ -13,13 +13,16 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
               $scope.ingredients = [];
               $scope.query = undefined;
               $scope.currentPage = 1;
-              $scope.itemsPerPage = 30;
+              $scope.itemsPerPage = 15;
               $scope.totalItems = -1;
+              $scope.bigTotalItems = -1;
+              $scope.bigCurrentPage = 1;
+              $scope.maxSize = 35;
             }
 
             $scope.loadMoreIngredients = function() {
               var myparams = {
-                  offset: ($scope.currentPage - 1) * $scope.itemsPerPage,
+                  offset: ($scope.bigCurrentPage - 1) * $scope.itemsPerPage,
                   max: $scope.itemsPerPage
               }
 
@@ -31,9 +34,9 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
                   params: myparams
                 }).then(function(resp) {
                   console.log('Success', resp);
-                  $log.debug("Start:" + ($scope.currentPage - 1) * $scope.itemsPerPage);
-                  $scope.totalItems = resp.data.total;
-                  $log.debug("Total:" + $scope.totalItems);
+                  $log.debug("Start:" + ($scope.bigCurrentPage - 1) * $scope.itemsPerPage);
+                  $scope.bigTotalItems = resp.data.total;
+                  $log.debug("Total:" + $scope.bigTotalItems);
                   $scope.ingredients = resp.data.collection;
                   console.log($scope.itemsPerPage);
                 }, function(err) {
@@ -41,7 +44,7 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
                 });
               };
 
-            $scope.$watch('currentPage + itemsPerPage', function() {
+            $scope.$watch('bigCurrentPage + itemsPerPage', function() {
               $scope.loadMoreIngredients();
             });
 
@@ -109,5 +112,4 @@ app.factory('nutrientList', function($log) {
 
 app.controller('createRecipeCtrl', ['$scope', '$log', '$http', function($scope, $log, $http) {
     $log.debug('go to createRecipe Controller');
-    
 }]);
