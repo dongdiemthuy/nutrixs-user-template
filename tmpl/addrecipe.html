@@ -6,7 +6,6 @@
 
 <script type="text/ng-template" id="display">
     <div class="warpper">
-
     <div class="titer">
         <h1 class="main-title">Recipe Nutrition Calculator</h1>
     </div>
@@ -140,29 +139,28 @@
 
             <p>Matching Foods:</p>
 
-            <!-- -->
             <div class="col-1" >
                 <ul class="matching" >
                     <li ng-repeat="ingredient in ingredients">
-                        <a>{{ingredient.label}} </a>
+                        <a ng-click="onClick(ingredient)">{{ingredient.label}}</a>
                     </li>
                 </ul>
             </div>
         </div>
 
-        
         <div class="col-md-5" style="margin-left: -20px">
 
             <div class="form-group" id="serving">
 
                 <div class="loaded_item">
 
-                    <p class="food-description">Eggs - Grade A Large</p>
+                    <p class="food-description">{{selectedIngredient.label}}</p>
                     <!-- <div class="user_submitted"></div> -->
                     <!--<div class="nutritional_info">
                         <a href="#">nutritional info</a>
                     </div>-->
-
+                    <!-- ng-model="selectedIngredient.label"-->
+                    
                     <p>How much?</p>
                     <div class="form-inline" style=" margin-top: 10px;margin-left: 15px;">
 
@@ -186,4 +184,5 @@
     </div>
 </div>
 </script>
+
 </div>

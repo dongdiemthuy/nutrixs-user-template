@@ -9,6 +9,7 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
         //controllerAs: 'paginationCtrl',
         controller: function ($scope , $http) {
             $scope.ingredients = [];
+            $scope.selectedIngredient = {};
             $scope.init = function() {
               $scope.ingredients = [];
               $scope.query = undefined;
@@ -17,7 +18,7 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
               $scope.totalItems = -1;
               $scope.bigTotalItems = -1;
               $scope.bigCurrentPage = 1;
-              $scope.maxSize = 35;
+              $scope.maxSize = 7;
             }
 
             $scope.loadMoreIngredients = function() {
@@ -47,6 +48,11 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
             $scope.$watch('bigCurrentPage + itemsPerPage', function() {
               $scope.loadMoreIngredients();
             });
+
+            $scope.onClick = function(ingredient) {
+              $log.debug(ingredient.label);
+              $scope.selectedIngredient = ingredient;
+            }
 
             $scope.doSearchIngredients = function(q) {
                 console.log('doSearchIngredients');
@@ -113,3 +119,4 @@ app.factory('nutrientList', function($log) {
 app.controller('createRecipeCtrl', ['$scope', '$log', '$http', function($scope, $log, $http) {
     $log.debug('go to createRecipe Controller');
 }]);
+
