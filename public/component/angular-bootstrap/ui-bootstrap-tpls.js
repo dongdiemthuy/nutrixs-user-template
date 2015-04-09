@@ -2270,6 +2270,9 @@ angular.module('ui.bootstrap.pagination', [])
       ngModelCtrl.$render();
     }
   });
+  
+
+  
 }])
 
 .constant('paginationConfig', {

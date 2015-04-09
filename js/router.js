@@ -1,6 +1,5 @@
-'use strict';
-
 //Setting up route
+
 angular.module('nutrixApp').config(['$stateProvider', '$urlRouterProvider',
 
     function($stateProvider, $urlRouterProvider) {

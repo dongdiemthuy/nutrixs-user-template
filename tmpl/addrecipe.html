@@ -2,6 +2,7 @@
 <div ng-include="getTemplate()"></div>
 <div ng-include="getTemplateIngredient()"></div>
 
+<pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" max-size="maxSize" class="pagination" boundary-links="true" rotate="false" ></pagination>
 
 <script type="text/ng-template" id="display">
     <div class="warpper">
@@ -141,7 +142,7 @@
 
             <!-- -->
             <div class="col-1" >
-                <ul class="matching" ng-if="moreDataCanBeLoaded()" infinite-scroll="loadMoreIngredients()" >
+                <ul class="matching" >
                     <li ng-repeat="ingredient in ingredients">
                         <a>{{ingredient.label}} </a>
                     </li>
@@ -149,6 +150,7 @@
             </div>
         </div>
 
+        
         <div class="col-md-5" style="margin-left: -20px">
 
             <div class="form-group" id="serving">
@@ -184,5 +186,4 @@
     </div>
 </div>
 </script>
-
 </div>
