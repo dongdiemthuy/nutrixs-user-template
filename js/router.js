@@ -4,7 +4,6 @@ angular.module('nutrixApp').config(['$stateProvider', '$urlRouterProvider',
 
     function($stateProvider, $urlRouterProvider) {
 
-      
         $urlRouterProvider.otherwise('/');
 
         // states for my app
