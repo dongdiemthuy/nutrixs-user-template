@@ -1,100 +1,100 @@
 <div>
-<div ng-include="getTemplate()"></div>
-<div ng-include="getTemplateIngredient()"></div>
+    <div ng-include="getTemplate()"></div>
+    <div ng-include="getTemplateIngredient()"></div>
 
-<pagination total-items="bigTotalItems" items-per-page="itemsPerPage" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" ></pagination>
+    <pagination total-items="bigTotalItems" items-per-page="itemsPerPage" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" ></pagination>
 
-<button ng-click="consoleLogModel()">Show Model</button>
+    <button ng-click="consoleLogModel()">Show Model</button>
 
 <script type="text/ng-template" id="display">
     <div class="warpper">
     <div class="titer">
-        <h1 class="main-title">Recipe Nutrition Calculator</h1>
+	<h1 class="main-title">Recipe Nutrition Calculator</h1>
     </div>
     <div class="content">
     
-        <div class="column1">
-            <label class="label-text">Recipe name</label>
-            <div>
-                <input type="text" size="30" class="text-long" ng-model="recipe.label">
-            </div>
-            <button type="button" class="btn btn-primary" ng-click="submitData(recipe)">Create recipe</button>
-        </div>
-        
-        <div class="column2">
-            <label class="label-text">Number of servings</label>
-            <div> 
-                serves <input type="text" class="text-short" size="30" ng-model="recipe.servings"> people 
-            </div>
-        </div>
-        
-        <div class="table">
-        
-            <table class="main-table">
-                <thead>
-                    <tr>
-                        <td class="first">Ingredients</td>
-                        <td>Calories</td>
-                        <td>Carbs</td>
-                        <td>Fat</td>
-                        <td>Protein</td>
-                        <td>Sodium</td>
-                        <td>Sugar</td>
-                    </tr>
-                </thead>
-                
-                <tbody>
-                    <tr ng-repeat="material in recipe.materials">
-                        <td class="first">{{ material.label }} ({{ material.amount }})</td>
-                        <td>70</td>
-                        <td>0</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>70</td>
-                        <td>0</td>
-                        <td class="delete">
-                            <a href="#" ng-click="deleteMaterial(material)")><img alt="Delete" src="/img/icon_delete.gif"></a>
-                        </td>
-                    </tr>
-                    <tr class="bottom">
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                         <td>&nbsp;</td>
-                         <td class="delete"><a href ng-click="addIngredient()"><span class="glyphicon glyphicon-plus"></span></a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <table class="table-total">
-            
-                <tbody>
-                    <tr class="total">
-                        <td class="first">Total:</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
+	<div class="column1">
+	    <label class="label-text">Recipe name</label>
+	    <div>
+		<input type="text" size="30" class="text-long" ng-model="recipe.label">
+	    </div>
+	    <button type="button" class="btn btn-primary" ng-click="submitData(recipe)">Create recipe</button>
+	</div>
+	
+	<div class="column2">
+	    <label class="label-text">Number of servings</label>
+	    <div> 
+		serves <input type="text" class="text-short" size="30" ng-model="recipe.servings"> people 
+	    </div>
+	</div>
+	
+	<div class="table">
+	
+	    <table class="main-table">
+		<thead>
+		    <tr>
+			<td class="first">Ingredients</td>
+			<td>Calories</td>
+			<td>Carbs</td>
+			<td>Fat</td>
+			<td>Protein</td>
+			<td>Sodium</td>
+			<td>Sugar</td>
+		    </tr>
+		</thead>
+		
+		<tbody>
+		    <tr ng-repeat="material in recipe.materials">
+			<td class="first">{{ material.label }} ({{ material.amount }})</td>
+			<td>70</td>
+			<td>0</td>
+			<td>5</td>
+			<td>6</td>
+			<td>70</td>
+			<td>0</td>
+			<td class="delete">
+			    <a href="#" ng-click="deleteMaterial(material)")><img alt="Delete" src="/img/icon_delete.gif"></a>
+			</td>
+		    </tr>
+		    <tr class="bottom">
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			 <td>&nbsp;</td>
+			 <td class="delete"><a href ng-click="addIngredient()"><span class="glyphicon glyphicon-plus"></span></a>
+			</td>
+		    </tr>
+		</tbody>
+	    </table>
+	    
+	    <table class="table-total">
+	    
+		<tbody>
+		    <tr class="total">
+			<td class="first">Total:</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+		    </tr>
 
-                    <tr class="total">
-                        <td class="first">Per Serving:</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+		    <tr class="total">
+			<td class="first">Per Serving:</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+		    </tr>
+		</tbody>
+	    </table>
+	</div>
     </div>
 </div>
 </script>
@@ -103,63 +103,63 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-md-10">
-            <p class="main-title">Add Material To Recipe
-                <p>
-                    <hr class="hr-bottom" width="100%" size="1px;">
-        </div>
+	<div class="col-md-10">
+	    <p class="main-title">Add Material To Recipe
+		<p>
+		    <hr class="hr-bottom" width="100%" size="1px;">
+	</div>
 
-        <div class="col-md-5">
+	<div class="col-md-5">
 
-            <p>Search our food database by name:</p>
-            <div class="form-inline" style="margin-bottom: 15px;">
-                <input type="text" size="30" class="form-control" ng-model="searchText" placeholder="enter food name">
-                <button type="submit" class="btn btn-success" ng-click="doSearchIngredients(searchText)">Search</button>
-            </div>
+	    <p>Search our food database by name:</p>
+	    <div class="form-inline" style="margin-bottom: 15px;">
+		<input type="text" size="30" class="form-control" ng-model="searchText" placeholder="enter food name">
+		<button type="submit" class="btn btn-success" ng-click="doSearchIngredients(searchText)">Search</button>
+	    </div>
 
-            <p>Matching Foods:</p>
+	    <p>Matching Foods:</p>
 
-            <div class="col-1" >
-                <ul class="matching" >
-                    <li ng-repeat="ingredient in ingredients">
-                        <a ng-click="onClick(ingredient)">{{ingredient.label}}</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+	    <div class="col-1" >
+		<ul class="matching" >
+		    <li ng-repeat="ingredient in ingredients">
+			<a ng-click="onClick(ingredient)">{{ingredient.label}}</a>
+		    </li>
+		</ul>
+	    </div>
+	</div>
 
-        <div class="col-md-5" style="margin-left: -20px">
+	<div class="col-md-5" style="margin-left: -20px">
 
-            <div class="form-group" id="serving">
+	    <div class="form-group" id="serving">
 
-                <div class="loaded_item">
-                    <p class="food-description">{{ materialItem.label }}</p>
-                    <!-- <div class="user_submitted"></div> -->
-                    <!--<div class="nutritional_info">
-                        <a href="#">nutritional info</a>
-                    </div>-->
-                    <!-- ng-model="selectedIngredient.label"-->
-                    
-                    <p>How much?</p>
-                    <div class="form-inline" style=" margin-top: 10px;margin-left: 15px;">
+		<div class="loaded_item">
+		    <p class="food-description">{{ materialItem.label }}</p>
+		    <!-- <div class="user_submitted"></div> -->
+		    <!--<div class="nutritional_info">
+			<a href="#">nutritional info</a>
+		    </div>-->
+		    <!-- ng-model="selectedIngredient.label"-->
+		    
+		    <p>How much?</p>
+		    <div class="form-inline" style=" margin-top: 10px;margin-left: 15px;">
 
-                        <input type="text" class="form-control" style="width: 50px" ng-model="materialItem.amount"> serving of
-                        <select class="form-control">
-                            <option value="grams">100 grams</option>
-                            <option value="cup">1 cup</option>
-                            <option value="ml">100 ml</option>
-                        </select>
+			<input type="text" class="form-control" style="width: 50px" ng-model="materialItem.amount"> serving of
+			<select class="form-control">
+			    <option value="grams">100 grams</option>
+			    <option value="cup">1 cup</option>
+			    <option value="ml">100 ml</option>
+			</select>
 
-                    </div>
+		    </div>
 
-                    <div class="form-inline" style="margin-top: 15px">
+		    <div class="form-inline" style="margin-top: 15px">
 
-                        <button type="submit" class="btn btn-success" ng-click="addMaterial(materialItem)">Add</button>
+			<button type="submit" class="btn btn-success" ng-click="addMaterial(materialItem)">Add</button>
 
-                    </div>
-                </div>
-            </div>
-        </div>
+		    </div>
+		</div>
+	    </div>
+	</div>
     </div>
 </div>
 </script>

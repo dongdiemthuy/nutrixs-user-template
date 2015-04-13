@@ -7,6 +7,9 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
     templateUrl: 'tmpl/addrecipe.html',
     replace: true,
     controller: function ($scope , $http) {
+      // display mode
+      $scope.displayMode = null;
+
       // init the data model: recipe, materialItem
       $scope.recipe = {};
       $scope.recipe.materials = [];
@@ -75,6 +78,7 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
         $scope.materialItem = {
           label: "(choose one ingredient, please!)"
         };
+        $scope.displayMode = 'edit';
       };
 
       $scope.addMaterial = function(material) {
@@ -113,7 +117,7 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
       };
 
       $scope.getTemplateIngredient = function() {
-        return 'edit';
+        return $scope.displayMode;
       };
     }
   }
