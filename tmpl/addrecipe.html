@@ -4,25 +4,27 @@
 
 <pagination total-items="bigTotalItems" items-per-page="itemsPerPage" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" ></pagination>
 
+<button ng-click="consoleLogModel()">Show Model</button>
+
 <script type="text/ng-template" id="display">
     <div class="warpper">
     <div class="titer">
         <h1 class="main-title">Recipe Nutrition Calculator</h1>
     </div>
-    <div class="conten">
+    <div class="content">
     
         <div class="column1">
             <label class="label-text">Recipe name</label>
             <div>
-                <input type="text" size="30" class="text-long" ng-model="ingredient.label">
+                <input type="text" size="30" class="text-long" ng-model="recipe.label">
             </div>
-             <button type="button" class="btn btn-primary" ng-click="submitData(ingredient)">Create recipe</button>
+            <button type="button" class="btn btn-primary" ng-click="submitData(recipe)">Create recipe</button>
         </div>
         
         <div class="column2">
             <label class="label-text">Number of servings</label>
-            <div>
-                serves <input type="text" class="text-short" size="30"> people 
+            <div> 
+                serves <input type="text" class="text-short" size="30" ng-model="recipe.servings"> people 
             </div>
         </div>
         
@@ -42,38 +44,19 @@
                 </thead>
                 
                 <tbody>
-                
-                    <!--  -->
-                      <tr>
-                        <td class="first">Eggs - Grade A Large, 1 egg (65g)</td>
-                          <td>70</td>
-                          <td>0</td>
-                          <td>5</td>
-                          <td>6</td>
-                          <td>70</td>
-                          <td>0</td>
+                    <tr ng-repeat="material in recipe.materials">
+                        <td class="first">{{ material.label }} ({{ material.amount }})</td>
+                        <td>70</td>
+                        <td>0</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>70</td>
+                        <td>0</td>
                         <td class="delete">
-                          <a href="#"><img alt="Ico_delete" src="/img/icon_delete.gif"></a>
+                            <a href="#" ng-click="deleteMaterial(material)")><img alt="Delete" src="/img/icon_delete.gif"></a>
                         </td>
-                      </tr>
-                      
-                      <tr>
-                        <td class="first">Eggs - Grade A Large, 1 egg (65g)</td>
-                          <td>70</td>
-                          <td>0</td>
-                          <td>5</td>
-                          <td>6</td>
-                          <td>70</td>
-                          <td>0</td>
-                        <td class="delete">
-                          <a href="#"><img alt="Ico_delete" src="/img/icon_delete.gif"></a>
-                        </td>
-
-                      </tr>
-                    <!-- -->
-                    
+                    </tr>
                     <tr class="bottom">
-                       
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
@@ -84,16 +67,14 @@
                          <td class="delete"><a href ng-click="addIngredient()"><span class="glyphicon glyphicon-plus"></span></a>
                         </td>
                     </tr>
-                 </tbody>
-                
+                </tbody>
             </table>
             
             <table class="table-total">
             
                 <tbody>
-                
                     <tr class="total">
-                      <td class="first">Total:</td>
+                        <td class="first">Total:</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
@@ -101,9 +82,8 @@
                         <td>0</td>
                         <td>0</td>
                     </tr>
-                    
+
                     <tr class="total">
-                    
                         <td class="first">Per Serving:</td>
                         <td>0</td>
                         <td>0</td>
@@ -111,7 +91,6 @@
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
-                      
                     </tr>
                 </tbody>
             </table>
@@ -125,7 +104,7 @@
     <div class="row">
 
         <div class="col-md-10">
-            <p class="main-title">Add Ingredient To Recipe
+            <p class="main-title">Add Material To Recipe
                 <p>
                     <hr class="hr-bottom" width="100%" size="1px;">
         </div>
@@ -154,7 +133,7 @@
             <div class="form-group" id="serving">
 
                 <div class="loaded_item">
-                    <p class="food-description">{{selectedIngredient.label}}</p>
+                    <p class="food-description">{{ materialItem.label }}</p>
                     <!-- <div class="user_submitted"></div> -->
                     <!--<div class="nutritional_info">
                         <a href="#">nutritional info</a>
@@ -164,7 +143,7 @@
                     <p>How much?</p>
                     <div class="form-inline" style=" margin-top: 10px;margin-left: 15px;">
 
-                        <input type="text" class="form-control" style="width: 50px"> serving of
+                        <input type="text" class="form-control" style="width: 50px" ng-model="materialItem.amount"> serving of
                         <select class="form-control">
                             <option value="grams">100 grams</option>
                             <option value="cup">1 cup</option>
@@ -175,7 +154,7 @@
 
                     <div class="form-inline" style="margin-top: 15px">
 
-                        <button type="submit" class="btn btn-success" ng-click="">Add</button>
+                        <button type="submit" class="btn btn-success" ng-click="addMaterial(materialItem)">Add</button>
 
                     </div>
                 </div>

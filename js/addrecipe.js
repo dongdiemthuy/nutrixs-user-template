@@ -1,95 +1,123 @@
 var app = angular.module('nutrixApp');
 
 app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
-    return {
-        restrict: 'E',
-        scope: {},
-        templateUrl: 'tmpl/addrecipe.html',
-        replace: true,
-        //controllerAs: 'paginationCtrl',
-        controller: function ($scope , $http) {
-            $scope.ingredients = [];
-            $scope.selectedIngredient = {};
-            $scope.init = function() {
-              $scope.ingredients = [];
-              $scope.query = undefined;
-              $scope.currentPage = 1;
-              $scope.itemsPerPage = 15;
-              $scope.totalItems = -1;
-              $scope.bigTotalItems = -1;
-              $scope.bigCurrentPage = 1;
-              $scope.maxSize = 7;
-            }
+  return {
+    restrict: 'E',
+    scope: {},
+    templateUrl: 'tmpl/addrecipe.html',
+    replace: true,
+    controller: function ($scope , $http) {
+      // init the data model: recipe, materialItem
+      $scope.recipe = {};
+      $scope.recipe.materials = [];
+      $scope.materialItem = {};
 
-            $scope.loadMoreIngredients = function() {
-              var myparams = {
-                  offset: ($scope.bigCurrentPage - 1) * $scope.itemsPerPage,
-                  max: $scope.itemsPerPage
-              }
+      // init ingredients list
+      $scope.ingredients = [];
 
-              if ($scope.query != undefined && $scope.query != null) {
-                myparams['q'] = $scope.query;
-              }
+      // @Deprecated
+      $scope.selectedIngredient = {};
+        
+      $scope.init = function() {
+        $scope.ingredients = [];
+        $scope.query = undefined;
+        $scope.currentPage = 1;
+        $scope.itemsPerPage = 15;
+        $scope.totalItems = -1;
+        $scope.bigTotalItems = -1;
+        $scope.bigCurrentPage = 1;
+        $scope.maxSize = 7;
+      }
 
-              $http.get('http://localhost:7777/nutrix-app/ws/nutrix/adm/ingredient', {
-                  params: myparams
-                }).then(function(resp) {
-                  console.log('Success', resp);
-                  $log.debug("Start:" + ($scope.bigCurrentPage - 1) * $scope.itemsPerPage);
-                  $scope.bigTotalItems = resp.data.total;
-                  $log.debug("Total:" + $scope.bigTotalItems);
-                  $scope.ingredients = resp.data.collection;
-                  console.log($scope.itemsPerPage);
-                }, function(err) {
-                  console.error('ERR', err);
-                });
-              };
+      $scope.loadMoreIngredients = function() {
+        var myparams = {
+            offset: ($scope.bigCurrentPage - 1) * $scope.itemsPerPage,
+            max: $scope.itemsPerPage
+        }
 
-            $scope.$watch('bigCurrentPage + itemsPerPage', function() {
-              $scope.loadMoreIngredients();
-            });
+        if ($scope.query != undefined && $scope.query != null) {
+          myparams['q'] = $scope.query;
+        }
 
-            $scope.onClick = function(ingredient) {
-              $log.debug(ingredient.label);
-              $scope.selectedIngredient = ingredient;
-            }
-            
-            $scope.doSearchIngredients = function(q) {
-                console.log('doSearchIngredients');
-                $scope.init();
-                $scope.query = q;
-                $scope.loadMoreIngredients();
-            };
+        $http.get('http://localhost:7777/nutrix-app/ws/nutrix/adm/ingredient', {
+          params: myparams
+        }).then(function(resp) {
+          console.log('Success', resp);
+          $log.debug("Start:" + ($scope.bigCurrentPage - 1) * $scope.itemsPerPage);
+          $scope.bigTotalItems = resp.data.total;
+          $log.debug("Total:" + $scope.bigTotalItems);
+          $scope.ingredients = resp.data.collection;
+          console.log($scope.itemsPerPage);
+        }, function(err) {
+          console.error('ERR', err);
+        });
+      };
 
-            $scope.init();
+      $scope.$watch('bigCurrentPage + itemsPerPage', function() {
+        $scope.loadMoreIngredients();
+      });
 
-            
-            $scope.submitData = function(ingredient) {
-              $http.post('http://localhost:7777/nutrix-app/ws/nutrix/adm/ingredient', ingredient)
-              .success(function(data) {
-                console.log(data);
-                $scope.ingredients.push(data);
-                $scope.ingredients.label = '';
-                });
-            }
-        },
+      $scope.onClick = function(ingredient) {
+        $log.debug(ingredient.label);
+        $scope.materialItem.id = ingredient.id;
+        $scope.materialItem.label = ingredient.label;
+      }
+        
+      $scope.doSearchIngredients = function(q) {
+          console.log('doSearchIngredients');
+          $scope.init();
+          $scope.query = q;
+          $scope.loadMoreIngredients();
+      };
 
-        link: function($scope, element, attrs) {
+      $scope.addIngredient = function() {
+        $log.debug("add ingredient");
+        $scope.materialItem = {
+          label: "(choose one ingredient, please!)"
+        };
+      };
 
-            $log.debug("addrecipe go to here");
-            $scope.getTemplate = function() {
-                    return 'display';
-                },
+      $scope.addMaterial = function(material) {
+        $scope.recipe.materials.push(material);
+        $scope.materialItem = {};
+      }
 
-            $scope.addIngredient = function() {
-                $log.debug("add ingredient");
-                $scope.getTemplateIngredient = function() {
-                    return 'edit';
-                    }
-            }
-          }
+      $scope.deleteMaterial = function(material) {
+        $scope.recipe.materials.splice($scope.recipe.materials.indexOf(material), 1);
+      }
+
+      $scope.init();
+
+        
+      $scope.submitData = function(ingredient) {
+        $http.post('http://localhost:7777/nutrix-app/ws/nutrix/adm/ingredient', ingredient)
+        .success(function(data) {
+          $scope.ingredients.push(data);
+          $scope.ingredients.label = '';
+        });
+      };
+
+      $scope.consoleLogModel = function() {
+        $log.debug("---------------------------------");
+        $log.debug("Recipe object:");
+        $log.debug($scope.recipe);
+        $log.debug("Material object:");
+        $log.debug($scope.materialItem);
+      }
+    },
+
+    link: function($scope, element, attrs) {
+      $log.debug("addrecipe go to here");
+      $scope.getTemplate = function() {
+        return 'display';
+      };
+
+      $scope.getTemplateIngredient = function() {
+        return 'edit';
+      };
     }
- });
+  }
+});
 
 app.run(function(nutrientList, $http, $log) {
 
