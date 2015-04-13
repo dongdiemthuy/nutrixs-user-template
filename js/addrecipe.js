@@ -73,7 +73,7 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
           $scope.loadMoreIngredients();
       };
 
-      $scope.addIngredient = function() {
+      $scope.openMaterialForm = function() {
         $log.debug("add ingredient");
         $scope.materialItem = {
           label: "(choose one ingredient, please!)"
@@ -82,7 +82,7 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
       };
       
       $scope.hideMaterialForm = function() {
-	$scope.displayMode = null;
+	     $scope.displayMode = null;
       }
 
       $scope.addMaterial = function(material) {
