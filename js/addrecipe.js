@@ -10,10 +10,11 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
       // display mode
       $scope.displayMode = null;
 
-      // init the data model: recipe, materialItem
+      // init the data model: recipe, materialItem, value materialItem
       $scope.recipe = {};
       $scope.recipe.materials = [];
       $scope.materialItem = {};
+      //$scope.recipe.values = [];
 
       // init ingredients list
       $scope.ingredients = [];
@@ -60,7 +61,7 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
         $scope.loadMoreIngredients();
       });
 
-      $scope.onClick = function(ingredient) {
+      $scope.onClickIngredient = function(ingredient) {
         $log.debug(ingredient.label);
         $scope.materialItem.id = ingredient.id;
         $scope.materialItem.label = ingredient.label;
@@ -96,7 +97,6 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
 
       $scope.init();
 
-        
       $scope.submitData = function(ingredient) {
         $http.post('http://localhost:7777/nutrix-app/ws/nutrix/adm/ingredient', ingredient)
         .success(function(data) {
