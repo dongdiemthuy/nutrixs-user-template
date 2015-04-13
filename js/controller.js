@@ -125,11 +125,7 @@ angular.module('nutrixApp')
             nutrientList.setNutrients(data.collection);
         });
 })
-.controller('compareIngredientCtrl', function($scope, $http, $stateParams, $state, nutrientList){
 
-    
-  
-})
 
 .controller('addIngredientCtrl', function($scope, $http, $stateParams, $state, nutrientList, $log) {
 
@@ -191,7 +187,6 @@ angular.module('nutrixApp')
   };
 
   $scope.init();
-
 })
 
 

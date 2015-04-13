@@ -53,7 +53,7 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
               $log.debug(ingredient.label);
               $scope.selectedIngredient = ingredient;
             }
-
+            
             $scope.doSearchIngredients = function(q) {
                 console.log('doSearchIngredients');
                 $scope.init();
@@ -62,6 +62,16 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
             };
 
             $scope.init();
+
+            
+            $scope.submitData = function(ingredient) {
+              $http.post('http://localhost:7777/nutrix-app/ws/nutrix/adm/ingredient', ingredient)
+              .success(function(data) {
+                console.log(data);
+                $scope.ingredients.push(data);
+                $scope.ingredients.label = '';
+                });
+            }
         },
 
         link: function($scope, element, attrs) {
@@ -77,7 +87,6 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
                     return 'edit';
                     }
             }
-          //
           }
     }
  });
@@ -120,3 +129,5 @@ app.controller('createRecipeCtrl', ['$scope', '$log', '$http', function($scope, 
     $log.debug('go to createRecipe Controller');
 }]);
 
+
+     

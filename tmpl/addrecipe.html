@@ -14,8 +14,9 @@
         <div class="column1">
             <label class="label-text">Recipe name</label>
             <div>
-                <input type="text" size="30" class="text-long">
+                <input type="text" size="30" class="text-long" ng-model="ingredient.label">
             </div>
+             <button type="button" class="btn btn-primary" ng-click="submitData(ingredient)">Create recipe</button>
         </div>
         
         <div class="column2">
@@ -174,7 +175,7 @@
 
                     <div class="form-inline" style="margin-top: 15px">
 
-                        <button type="submit" class="btn btn-success">Add</button>
+                        <button type="submit" class="btn btn-success" ng-click="">Add</button>
 
                     </div>
                 </div>
