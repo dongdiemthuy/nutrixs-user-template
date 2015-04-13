@@ -80,6 +80,10 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
         };
         $scope.displayMode = 'edit';
       };
+      
+      $scope.hideMaterialForm = function() {
+	$scope.displayMode = null;
+      }
 
       $scope.addMaterial = function(material) {
         $scope.recipe.materials.push(material);
