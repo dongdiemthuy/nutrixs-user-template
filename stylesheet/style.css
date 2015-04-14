@@ -222,7 +222,7 @@ div#required_recipe_info div.column {
 }
 
 .warpper {
-  width: 900px;
+  width: 800px;
   margin: auto;
   font-family: inherit;
 }
@@ -454,7 +454,7 @@ ul.matching li a {
 }
 
 fieldset.scheduler-border {
-    border: 2px groove #CA37C2!important;
+    border: 2px groove #035184!important;
     padding: 0 1.4em 1.4em 1.4em !important;
     margin: 0 0 1.5em 0 !important;
     -webkit-box-shadow:  0px 0px 0px 0px #000;
