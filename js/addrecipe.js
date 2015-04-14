@@ -120,8 +120,8 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
         return 'display';
       };
 
-      $scope.getTemplateIngredient = function() {
-        return $scope.displayMode;
+      $scope.isMaterialFormVisibled = function() {
+        return $scope.displayMode == 'edit';
       };
     }
   }
