@@ -218,14 +218,16 @@ div#required_recipe_info div.column {
 
 .linetable{
   border: 1px solid black;
-    border-collapse: collapse;"
+  border-collapse: collapse;"
 }
 
-.warpper {
+.wrapper {
   width: 800px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   font-family: inherit;
 }
+
 .title {
   font-family: inherit;
   width: 620px;
@@ -241,6 +243,7 @@ div#required_recipe_info div.column {
 .content {
   margin-top: 20px;
 }
+
 .column1 {
   float: left;
 }
@@ -462,8 +465,10 @@ fieldset.scheduler-border {
 }
 
 legend.scheduler-border {
-    font-size: 1.2em !important;
-    font-weight: bold !important;
-    text-align: left !important;
-    border-bottom: 1px solid black;
+        font-size: 1.2em !important;
+        font-weight: bold !important;
+        text-align: left !important;
+        width:auto;
+        padding:0 10px;
+        border-bottom:none;
 }

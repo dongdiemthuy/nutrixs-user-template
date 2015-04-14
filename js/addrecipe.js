@@ -14,7 +14,7 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
       $scope.recipe = {};
       $scope.recipe.materials = [];
       $scope.materialItem = {};
-      //$scope.recipe.values = [];
+      
 
       // init ingredients list
       $scope.ingredients = [];
