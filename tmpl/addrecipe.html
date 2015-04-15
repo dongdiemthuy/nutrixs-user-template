@@ -63,15 +63,9 @@
                 </table>
                 <table class="main-table">
                     <tr class="bottom">
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        
                         <td>
-                            <button type="submit" class="btn btn-success" ng-click="submitData(recipe)">Create recipe</button>
+                            <button type="submit" class="btn btn-success" ng-disabled="isCreateRecipeDisabled()" ng-click="submitData(recipe)">Create recipe</button>
                         </td>
                     </tr>
 
@@ -84,7 +78,6 @@
             <div id="material-form" ng-show="isMaterialFormVisibled()">
                 <div class="col-md-10">
                     <p class="main-title">Add Material To Recipe</p>
-                    <hr class="hr-bottom" width="100%" size="1px;" />
                 </div>
                 <div class="form-inline">
                     <div class="col-md-6">

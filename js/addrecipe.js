@@ -7,8 +7,10 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
     templateUrl: 'tmpl/addrecipe.html',
     replace: true,
     controller: function ($scope , $http) {
+      // states of elements
       // display mode
       $scope.displayMode = null;
+      $scope.isCreateRecipeDisabled = false;
 
       // init the data model: recipe, materialItem, value materialItem
       $scope.recipe = {};
@@ -84,6 +86,9 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
       
       $scope.hideMaterialForm = function() {
 	     $scope.displayMode = null;
+      }
+      $scope.isCreateRecipeDisabled = function() {
+        return $scope.displayMode == 'edit';
       }
 
       $scope.addMaterial = function(material) {
