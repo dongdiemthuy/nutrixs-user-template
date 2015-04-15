@@ -1,5 +1,5 @@
 <div class="container-fluid">
- 
+
     <div id="header">
         <table>
             <tr>
@@ -12,13 +12,12 @@
                 </td>
             </tr>
         </table>
+        
     </div>
-
     <div class="panel-left">
         <h3> Ingredient List</h3>
-        <!-- ng-if="moreDataCanBeLoaded()" infinite-scroll="loadMoreIngredients()" de o table-->
         <div >
-            <table ng-if="moreDataCanBeLoaded()" infinite-scroll="loadMoreIngredients()">
+            <table>
                 <tr ng-repeat="ingredient in ingredients">
                     <td><a style="text-decoration: none;" ng-href="#/viewingredient/{{ingredient.id}}">{{ingredient.label}}</a></td>
                 </tr>
@@ -30,4 +29,5 @@
     </div>
     <div id="footer">
     </div>
+    <pagination total-items="bigTotalItems" items-per-page="itemsPerPage" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" rotate="false"></pagination>
 </div>
