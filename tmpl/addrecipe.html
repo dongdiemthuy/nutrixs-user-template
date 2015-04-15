@@ -77,6 +77,9 @@
 	                                <li ng-repeat="ingredient in ingredients">
 	                                    <a ng-click="onClickIngredient(ingredient)">{{ingredient.label}}</a>
 	                                </li>
+	                                <div style="margin-top: 20px">
+										<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+		                            </div>
 	                            </ul>
 	                            <pagination total-items="bigTotalItems" items-per-page="itemsPerPage" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" rotate="false"></pagination>
 	                    </div>
@@ -87,7 +90,7 @@
 	                                <p>How much?</p>
 	                                <div class="form-inline" style="margin: auto">
 	                                    <input type="number" min="1" max="1000" class="form-control" style="width: 70px" ng-model="materialItem.amount" required> serving of
-	                                    <select class="form-control" ng-model="materialItem.value">
+	                                    <select class="form-control" ng-model="materialItem.unitType">
 	                                        <option value="null" selected="selected"></option>
 	                                        <option value="100 grams">100 grams</option>
 	                                        <option value="1 cup">1 cup</option>
@@ -116,7 +119,7 @@
             </div><!-- //recipe-form -->
 
             
-            <div class="col-md-10">
+            <div class="row col-md-10">
                 <fieldset class="scheduler-border col-md-10" style="width:698px">
                     <legend class="scheduler-border">Summary</legend>
                     <div class="control-group">

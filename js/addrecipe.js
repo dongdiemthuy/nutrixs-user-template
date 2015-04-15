@@ -64,8 +64,23 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
 
       $scope.onClickIngredient = function(ingredient) {
         $log.debug(ingredient.label);
-        $scope.materialItem.id = ingredient.id;
-        $scope.materialItem.label = ingredient.label;
+        var found = false;
+        $scope.recipe.materials.forEach(function(item) {
+          if (ingredient.id == item.id) {
+            found = true;
+          }
+        });
+        if (found) {
+          console.log('duplicated');
+          $scope.alerts.push({type: 'danger',msg: 'Material is choose! Please choose another material!'});
+            $scope.closeAlert = function(index) {
+              $scope.alerts.splice(index, 1);
+            };
+        } else {
+          console.log('ok');
+          $scope.materialItem.id = ingredient.id;
+          $scope.materialItem.label = ingredient.label;
+        }
       }
         
       $scope.doSearchIngredients = function(q) {
@@ -108,15 +123,17 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
 
       $scope.addMaterial = function(material) {
         if((!angular.isNumber($scope.materialItem.amount))
-         || ($scope.materialItem.value == "null")) {
+         || ($scope.materialItem.unitType == "null")) {
             console.log('error');
             $scope.alerts.push({type: 'danger',msg: 'Please select value!'});
             $scope.closeAlert = function(index) {
               $scope.alerts.splice(index, 1);
             };
          } else {
-          $scope.recipe.materials.push(material);
-          $scope.materialItem = {};
+          if (angular.isDefined($scope.materialItem.id)) {
+            $scope.recipe.materials.push(material);
+            $scope.materialItem = {};
+          }
         }
       }
       
