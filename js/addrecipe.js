@@ -76,6 +76,22 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
           $scope.loadMoreIngredients();
       };
 
+      $scope.toggleMaterialForm = function() {
+        if ($scope.displayMode == 'edit') {
+          $scope.hideMaterialForm();
+        } else {
+          $scope.openMaterialForm();
+        }
+      };
+
+      $scope.toggleButtonStyle = function() {
+        if ($scope.displayMode == 'edit') {
+          return 'glyphicon-minus';
+        } else {
+          return 'glyphicon-plus';
+        }
+      }
+
       $scope.openMaterialForm = function() {
         $log.debug("add ingredient");
         $scope.materialItem = {
