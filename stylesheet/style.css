@@ -1,9 +1,5 @@
 
 .wrapper { 
-
-  /*width: 800px;
-  margin-left: auto;
-  margin-right: auto;*/
   margin: auto;
   float: none;
   font-family: inherit;
@@ -11,36 +7,16 @@
 
 .title {
   font-family: inherit;
-  /*width: 620px;*/
-  /*border-bottom: 1px solid #e6e6e6;*/
 }
-
-.main-title {
-  color: #0a5282;
-  font-size: 20px;
-  font-weight: bolder;
-}
-
 .content {
   margin-top: 20px;
-}
-
-.column1 {
-  /*float: left;*/
-}
-
-.column2 {
-  /*float: left;
-  margin-left: 50px;*/
 }
 
 .label-text {
   font-weight: bold;
   color: #0a5282;
 }
-
 .table {
-  /*float: left;*/
   margin-top: 15px
 }
 
@@ -130,15 +106,13 @@ body {
   margin: 50px;
 }
 
-p {
+h5 {
   color: #0a5282;
   font-weight: bold;
-  font-size: 16px;
 }
 
-p.main-title {
+h4 {
   color: #0a5282;
-  font-size: 17px;
   font-weight: bold;
 }
 
@@ -150,12 +124,12 @@ a {
   text-decoration: none;
 }
 
-.col-1 {
+/*.col-1 {
   width: 420px;
   position: relative;
   overflow: hidden;
 }
-
+*/
 .matching {
   height: auto;
   width: 300px;
@@ -193,16 +167,10 @@ ul.matching li a {
   padding: 7px 0px;
 }
 
-.mousetype {
-  font-size: 10px;
-}
-
 #serving {
-  height: 255px; 
-  margin-top: 113px;
-  padding-left: 10px;
-  padding-right: 10px;
-  /*width: 350px;*/
+  height: 300px; 
+  margin-top: 112px;
+  width: 300px;
   background-color: #F6F6F6;
   text-align: center;
   border-top: 3px solid #E6E6E6;
