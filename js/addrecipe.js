@@ -16,7 +16,7 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
       $scope.recipe = {};
       $scope.recipe.materials = [];
       $scope.materialItem = {};
-
+      $scope.alerts = [];
       // init ingredients list
       $scope.ingredients = [];
 
@@ -107,9 +107,19 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
       }
 
       $scope.addMaterial = function(material) {
-        $scope.recipe.materials.push(material);
-        $scope.materialItem = {};
+        if((!angular.isNumber($scope.materialItem.amount))
+         || ($scope.materialItem.value == "null")) {
+            console.log('error');
+            $scope.alerts.push({type: 'danger',msg: 'Please select value!'});
+            $scope.closeAlert = function(index) {
+              $scope.alerts.splice(index, 1);
+            };
+         } else {
+          $scope.recipe.materials.push(material);
+          $scope.materialItem = {};
+        }
       }
+      
 
       $scope.deleteMaterial = function(material) {
         $scope.recipe.materials.splice($scope.recipe.materials.indexOf(material), 1);
