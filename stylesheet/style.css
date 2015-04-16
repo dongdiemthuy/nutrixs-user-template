@@ -363,7 +363,8 @@ ul.matching li a {
 #serving {
   height: 300px; 
   margin-top: 112px;
-  width: 300px;
+  margin-left: -30px;
+  width: 330px;
   background-color: #F6F6F6;
   text-align: center;
   border-top: 3px solid #E6E6E6;

@@ -71,7 +71,7 @@ angular.module('nutrixApp')
 
 
   $scope.doSearchIngredients = function(q) {
-                console.log('doSearchIngredients');
+      console.log('doSearchIngredients');
                 $scope.init();
                 $scope.query = q;
                 $scope.loadMoreIngredients();

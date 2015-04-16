@@ -16,12 +16,18 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
       $scope.recipe = {};
       $scope.recipe.materials = [];
       $scope.materialItem = {};
+      // $scope.materialItem.unitType = "100 grams";
       $scope.alerts = [];
       // init ingredients list
       $scope.ingredients = [];
 
       // @Deprecated
-      $scope.selectedIngredient = {};
+      $scope.initMaterialItem = function() {
+        $scope.materialItem = {
+          label: "(choose one ingredient, please!)",
+          unitType: "null"
+        };
+      };
         
       $scope.init = function() {
         $scope.ingredients = [];
@@ -108,9 +114,7 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
 
       $scope.openMaterialForm = function() {
         $log.debug("add ingredient");
-        $scope.materialItem = {
-          label: "(choose one ingredient, please!)"
-        };
+        $scope.initMaterialItem();
         $scope.displayMode = 'edit';
       };
       
@@ -132,7 +136,7 @@ app.directive('addrecipe', function($timeout, $log, $http,nutrientList) {
          } else {
           if (angular.isDefined($scope.materialItem.id)) {
             $scope.recipe.materials.push(material);
-            $scope.materialItem = {};
+            $scope.initMaterialItem();
           }
         }
       }
